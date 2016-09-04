@@ -1,2 +1,2 @@
 # docker-socat
-Socat
+Docker container for running socat
