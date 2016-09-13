@@ -1,5 +1,0 @@
-#!/usr/bin/with-contenv sh
-
-umask 002
-
-exec socat tcp-listen:$LISTEN_PORT,fork tcp-connect:$(ip route | grep default | awk "{print \$3}"):$FORWARD_PORT
