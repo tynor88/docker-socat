@@ -51,7 +51,7 @@ docker run \
 
 ## Versions
 
-+ **2016/09/01:**
-  * Initial release
 + **2017/01/24:**
   * Added flexibility to target specified docker container
++ **2016/09/01:**
+  * Initial release
