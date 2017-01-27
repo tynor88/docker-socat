@@ -2,6 +2,13 @@
 
 umask 002
 
-s6-echo "Forwarding $LISTEN_PORT -> target_app:$FORWARD_PORT"
+if [ $(grep target_app /etc/hosts | wc -l) -gt "0" ]
+    then
+        FORWARD_HOST="target_app"
+    else
+        FORWARD_HOST=$(ip route | grep default | awk "{print \$3}")
+fi
 
-exec socat tcp-listen:${LISTEN_PORT},fork tcp-connect:target_app:${FORWARD_PORT}
+s6-echo "Forwarding $LISTEN_PORT -> $FORWARD_HOST:$FORWARD_PORT"
+
+exec socat tcp-listen:${LISTEN_PORT},fork tcp-connect:${FORWARD_HOST}:${FORWARD_PORT}
