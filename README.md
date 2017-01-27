@@ -34,7 +34,7 @@ docker run \
   -e LISTEN_PORT=<listening port> \
   -e FORWARD_PORT=<forwarding / redirect port> \
   --link <name of target docker container>:target_app \
-  -p<listening port>:<listening port>
+  -p <listening port>:<listening port>
   tynor88/socat
 ```
 
@@ -53,5 +53,5 @@ docker run \
 
 + **2016/09/01:**
   * Initial release
-  **2017/01/24:**
++ **2017/01/24:**
   * Added flexibility to target specified docker container
