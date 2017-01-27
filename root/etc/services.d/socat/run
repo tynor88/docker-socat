@@ -2,6 +2,6 @@
 
 umask 002
 
-s6-echo "Forwarding $LISTEN_PORT -> $FORWARD_PORT"
+s6-echo "Forwarding $LISTEN_PORT -> target_app:$FORWARD_PORT"
 
-exec socat tcp-listen:${LISTEN_PORT},fork tcp-connect:$(ip route | grep default | awk "{print \$3}"):${FORWARD_PORT}
+exec socat tcp-listen:${LISTEN_PORT},fork tcp-connect:target_app:${FORWARD_PORT}
